@@ -50,6 +50,7 @@
         * The freedom to distribute copies of your modified versions to others.
         * http://www.gnu.org/philosophy/free-sw.html
 * Open source isn't necessarily free
+    * As in "freedom" or "beer"
 
 --------
 
