@@ -18,4 +18,4 @@ Unless explicitly specified, all contents of this repository are licensed under 
 Attribution-ShareAlike 3.0 Unported license, the full text of with is in the
 file COPYING.txt.
 
-Contributions are accepted until the same license as the source.
+Contributions are accepted under the same license as the source.
