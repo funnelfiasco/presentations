@@ -16,7 +16,8 @@ presentable slides with the following command:
     pandoc -t beamer *inputfile* *outputfile*
 
 [pandoc](http://johnmacfarlane.net/pandoc/) and [beamer](https://bitbucket.org/rivanvx/beamer/wiki/Home)
-are required to build the slides.
+are required to build the slides. This is inspired by
+[this post](http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc.html)
 
 # License
 
