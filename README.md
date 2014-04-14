@@ -23,6 +23,6 @@ are required to build the slides. This is inspired by
 
 Unless explicitly specified, all contents of this repository are licensed under
 the Creative Commons Attribution-ShareAlike 3.0 Unported license, the full text
-of whic is in thefile COPYING.txt.
+of which is in the file COPYING.txt.
 
 Contributions are accepted under the same license as the source.
