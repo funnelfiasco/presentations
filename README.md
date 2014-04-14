@@ -13,7 +13,7 @@ Presentations are in the [Markdown](http://daringfireball.net/projects/markdown)
 format for ease of version control and collaboration. They can be built into
 presentable slides with the following command:
 
-    pandoc -t beamer *inputfile* *outputfile*
+    pandoc -t beamer *inputfile* -o *outputfile*
 
 [pandoc](http://johnmacfarlane.net/pandoc/) and [beamer](https://bitbucket.org/rivanvx/beamer/wiki/Home)
 are required to build the slides. This is inspired by
