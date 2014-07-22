@@ -16,7 +16,6 @@
 * Not a lawyer!
 * Open source advocate
 * Contributor to a license project
-* Followed by @richardfontana
 
 ---------
 
