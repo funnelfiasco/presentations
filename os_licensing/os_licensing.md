@@ -1,6 +1,6 @@
 % Open source licensing
 % Ben Cotton
-% License: Creative Commons BY-SA 3.0
+% License: Creative Commons BY-SA 4.0 International
 
 # Agenda
 * Who is this guy?

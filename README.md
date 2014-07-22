@@ -22,7 +22,7 @@ are required to build the slides. This is inspired by
 # License
 
 Unless explicitly specified, all contents of this repository are licensed under
-the Creative Commons Attribution-ShareAlike 3.0 Unported license, the full text
+the Creative Commons Attribution-ShareAlike 4.0 International license (or later), the full text
 of which is in the file COPYING.txt.
 
 Contributions are accepted under the same license as the source.
