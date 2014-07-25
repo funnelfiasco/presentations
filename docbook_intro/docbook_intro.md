@@ -9,6 +9,7 @@
 * Creating a basic document
 * Writing content
 * Building your document
+* Other neat stuff
 * Resources
 
 ----------
@@ -53,11 +54,86 @@
 
 ---------
 
+# Example: create a document
+
+* Gives us a A FLOSS_Rules directory with stub files 
+
+---------
+
+# Example: create a document
+
+* publican.cfg
+    * Describes the document to publican
+* Author_Group.xml
+    * Gives a list of authors and their affiliations
+* Book_Info.xml
+    * Describes the book
+* Chapter.xml
+    * A sample template for book chapters
+* FLOSS_Rules.ent
+    * Sets "entities" (think: constants)
+* FLOSS_Rules.xml
+    * Defines the book's contents
+* Preface.xml
+    * A preface for the book
+* Revision_History.xml
+    * A place to record changes in the book
+
+---------
+
+# Writing content
+
+* Sometimes it is easier to write first and then do markup
+* Tools like [pandoc][pandoc] can convert less-formal source
+* My preference: markup as I go (but check syntax frequently)
+
+---------
+
+# Example: create a document
+
+* Time to make some edits
+<!-- In my example, I make a new Legal.xml that references CC-BY-SA instead of
+the GFDL. -->
+
+---------
+
+# Building your document
+
+* publican build --langs en-US --formats pdf,html,html-single
+* Other formats include: man, epub, eclipse
+
+---------
+
+# Other neat stuff
+
+* Package your docs with publican package
+    * Creates tarballs and RPMs
+* Publish to the web
+
+---------
+
+# Other neat stuff -- brands
+
+* Create your own brand
+    * Logos
+    * Common content
+
+---------
+
+# Resources
+
+* DocBook website: https://fedorahosted.org/publican/
+    * And yes, there's an O'Reilly book
+* Publican website: https://fedorahosted.org/publican/
+ 
+
 
 <!--
 LINKS GO HERE!
-[publican]: https://fedorahosted.org/publican/
 -->
+[pandoc]: http://johnmacfarlane.net/pandoc
+[pandoc-try]: http://johnmacfarlane.net/pandoc/try/
+[publican]: https://fedorahosted.org/publican/
 
 <!--
 This presentation is copyright 2014 by Ben Cotton. It is licensed under the
