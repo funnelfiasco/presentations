@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE bookinfo PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "example_book.ent">
+%BOOK_ENTITIES;
+]>
+<bookinfo id="book-Documentation-example_book-example_book">
+	<title>example book</title>
+	<subtitle>A small sample of what a book might look like.</subtitle>
+	<productname>Docs</productname>
+	<productnumber>0</productnumber>
+	<edition>0</edition>
+	<pubsnumber>0</pubsnumber>
+	<abstract>
+		<para>
+			This book is an example to go along with a presentation about using DocBook
+			and Publican together to form an amazing documentation-writing superteam.
+			It may or may not also be a <citetitle>New York	Times</citetitle> best-seller.
+		</para>
+	</abstract>
+	<corpauthor>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+			</imageobject>
+		</inlinemediaobject>
+	</corpauthor>
+	<xi:include href="Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</bookinfo>
+
