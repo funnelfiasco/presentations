@@ -5,6 +5,7 @@ In the interests of openness, I am making the source available.
 
 The following presentations are included in this repository:
 
+* docbook_intro - An introduction to DocBook XML and Publican
 * os_licensing - An introduction to open source licensing
 
 # Building
