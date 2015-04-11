@@ -120,9 +120,18 @@ the GFDL. -->
 
 ---------
 
+# But XML is still too much!
+
+* The best documentation is what gets written
+* Sphinx (uses Restructured Text) works well
+* Markdown readily displays in hosted git web interfaces
+* Some people like LaTeX
+
+---------
+
 # Resources
 
-* DocBook website: https://fedorahosted.org/publican/
+* DocBook website: http://www.docbook.org/
     * And yes, there's an O'Reilly book
 * Publican website: https://fedorahosted.org/publican/
  
@@ -136,7 +145,7 @@ LINKS GO HERE!
 [publican]: https://fedorahosted.org/publican/
 
 <!--
-This presentation is copyright 2014 by Ben Cotton. It is licensed under the
+This presentation is copyright 2015 by Ben Cotton. It is licensed under the
 Creative Commons Attribution Share-Alike 4.0 International license (or later).
 See the COPYING.txt file at the root of the repository.
 -->
