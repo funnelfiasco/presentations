@@ -1,0 +1,177 @@
+###############################################################################
+# embezzlr project -- A demo of TaskJuggler
+#
+# Copyright 2015 by Ben Cotton and licensed under the Creative Commons
+# Attribution-ShareAlike 4.0 International license. TaskJuggler is a trademark
+# of Chris Schlaeger.
+#
+# In this project, Peter, Michael, and Samir are developing embezzlr, a tool to
+# steal money from their soulless corporate job.
+#
+###############################################################################
+
+# The first step is to define the project. At a minimum, the project must have
+# a name and a timeframe.
+project "embezzlr" 2015-10-10 + 1y {
+	# TaskJuggler supports having multiple scenarios. One common use case is a
+	# "planned" and a "real-life"
+	scenario planned "Planned" {
+		# actual will be a child of the planned scenario
+		scenario actual "Actual"
+	}
+
+  # How fine-grained is the scheduling?
+  timingresolution 15 min
+
+	# You can extend tasks with custom fields. For example, GitHub issues
+	extend task {
+		reference GitHubIssue "GitHub Issue"
+	}
+}
+
+# Flags can be used as arbitrary labels
+flags notaperson
+
+# Now we define the people who are involved in this project.
+# Even though they don't do anything, we need to define the managers since they
+# are mentioned. TaskJuggler requires you to "declare" the resource before it
+# is used.
+resource bill "Bill Lumbergh"
+resource manager2 "Manager Two"
+resource manager3 "Manager Three"
+resource manager4 "Manager Four"
+resource manager5 "Manager Five"
+resource manager6 "Manager Six"
+resource manager7 "Manager Seven"
+resource manager8 "Manager Eight"
+
+resource peter "Peter Gibbons" {
+  # It's not that he's lazy, it's that he just doesn't care
+  efficiency 0.6
+  # But the bosses charge a lot of money for his time. Rate is expressed in
+  # dollars per day.
+  rate 400
+  # He has eight managers
+  managers bill, manager2, manager3, manager4, manager5, manager6, manager7, manager8
+  # He's been missing a lot of work lately
+  leaves sick 2015-10-12 + 2d
+  leaves sick 2015-10-27 + 2d
+  leaves annual 2015-12-01 + 1m
+}
+
+resource michael "Michael Bolton" {
+  rate 300
+  managers bill
+}
+
+resource samir "Samir Nagheenanajar" {
+  rate 300
+  managers bill
+}
+
+# Non-people resources (e.g. conference rooms) can be included for scheduling
+# purposes. An efficiency of 0 will keep them from contributing to the effort
+# of a task.
+resource chotchkies "Chotchkie's" {
+  efficiency 0
+  flags notaperson
+}
+
+# The company isn't completely soulless. People do get Thanksgiving
+# and Christmas off.
+leaves holiday "Thanksgiving" 2015-11-26,
+       holiday "Christmas" 2015-12-25
+
+# So what would you say...you do here? Let's define the tasks that comprise
+# this project. Tasks can be nested.
+
+task gripe "Complain about work" {
+  # How much time (in person-hours) will this take?
+	effort 3.0h
+  # Who is going to do it? Everybody needs to be there in order for the
+  # complaining to work
+	allocate peter { mandatory }, michael {mandatory}, samir {mandatory}
+}
+
+task bank_account "Open bank account" {
+  effort 0.5h
+  depends !gripe
+  allocate peter
+}
+
+task write_code "Write the code" {
+  # We have to get sufficiently angry first
+  depends !gripe
+
+  # For the child tasks, both Michael and Samir are sufficiently competent programmers
+  allocate michael {alternative samir}
+
+  task get_fractions "Get the fractions of a penny" {
+		effort 8h
+  }
+	task deposit_money "Deposit into our account" {
+		effort 6h
+		depends !!bank_account
+    actual:effort 12h
+	}
+}
+
+task install "Install our code" {
+  effort 0.5h
+  depends !write_code
+  allocate peter
+}
+
+task check_balance "Check balance" {
+  effort 0.2h
+  allocate peter
+  depends !install { gapduration 14d }
+}
+task fix_the_glitch "A mundane detail" {
+  effort 2h
+  allocate michael
+  depends !check_balance
+  GitHubIssue "https://github.com/petergibbons/embezzlr/issues/1"
+}
+  
+
+# Okay this is great, but what can we do with it? Let's make some output!
+taskreport "all_tasks" {
+	headline "Tasks & Milestones"
+	columns name, resources, effort, start, end, complete, GitHubIssue
+  timeformat "%a %Y-%b-%d %H:%M"
+	loadunit shortauto
+	formats html
+	scenarios planned,actual
+}
+
+# We can make macros to save some coding
+macro Staff_Report [
+	taskreport "${1}" {
+	headline "${1}'s tasks"
+	columns name, effort, start, end, complete
+	formats html
+	scenarios actual
+	hidetask ~isdutyof(${1},actual)
+	}
+]
+
+${Staff_Report "peter"}
+${Staff_Report "michael"}
+${Staff_Report "samir"}
+
+resourcereport "managers" {
+  formats html
+  columns name, directreports, reports
+  hideresource notaperson
+}
+
+# You have to have a Gantt chart, right?
+taskreport "gantt" {
+	headline "Gantt Chart"
+	columns name, scenario, resources { listitem "<-query attribute='name' ->" }, effort, start, end, complete, chart { scale day }
+	timeformat "%Y-%m-%d"
+	loadunit days
+	formats html
+	scenarios planned,actual
+}

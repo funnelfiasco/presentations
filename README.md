@@ -7,6 +7,7 @@ The following presentations are included in this repository:
 
 * docbook_intro - An introduction to DocBook XML and Publican
 * os_licensing - An introduction to open source licensing
+* taskjuggler - An introdoction to project management with TaskJuggler
 
 # Building
 
