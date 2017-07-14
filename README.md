@@ -19,7 +19,7 @@ presentable slides with the following command:
 
 [pandoc](http://johnmacfarlane.net/pandoc/) and [beamer](https://bitbucket.org/rivanvx/beamer/wiki/Home)
 are required to build the slides. This is inspired by
-[this post](http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc.html)
+[this post](https://web.archive.org/web/20161204054454/http://pages.stat.wisc.edu/~yandell/statgen/ucla/Help/Producing%20slide%20shows%20with%20Pandoc.html)
 
 # License
 
